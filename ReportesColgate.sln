@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportesColgate", "ReportesColgate.csproj", "{7C38970E-68C4-4E4B-B1A4-1DBDD37C6637}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C38970E-68C4-4E4B-B1A4-1DBDD37C6637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C38970E-68C4-4E4B-B1A4-1DBDD37C6637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C38970E-68C4-4E4B-B1A4-1DBDD37C6637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C38970E-68C4-4E4B-B1A4-1DBDD37C6637}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0C370FC-2DE2-4726-BB25-A3831B9332FE}
+	EndGlobalSection
+EndGlobal
