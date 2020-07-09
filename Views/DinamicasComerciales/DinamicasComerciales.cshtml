@@ -1,23 +1,21 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "DinamicasComerciales";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1 class="text-center">Escoge tu Dinámica Comercial</h1>
 <br />
-<div>
+@*<div>
     <img class="imgPastas" src="~/img/colgate.jpg" />
-</div>
+</div>*@
 <div class="container">
     <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-
         <div class="card-body text-center">
             <p class="card-text">
                 Dinámica Comercial Walmart
             </p>
         </div>
-        <a class="btn btn-warning" asp-action="" asp-controller="">
+        <a class="btn btn-warning" asp-action="Index" asp-controller="DinamicaWalmart">
             Entrar
         </a>
     </div>
@@ -55,3 +53,4 @@
         </a>
     </div>
 </div>
+

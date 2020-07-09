@@ -485,4 +485,5 @@ C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\bin\Debug\netcoreapp3.
 C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\obj\Debug\netcoreapp3.1\ReportesColgate.csproj.CoreCompileInputs.cache
 C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\obj\Debug\netcoreapp3.1\ReportesColgate.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\obj\Debug\netcoreapp3.1\ReportesColgate.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\obj\Debug\netcoreapp3.1\Razor\Views\DinamicaWalmart\Index.cshtml.g.cs
 C:\Users\johns\Documents\Proyecto Colgate\ReportesColgate\obj\Debug\netcoreapp3.1\Razor\Views\DinamicasComerciales\DinamicasComerciales.cshtml.g.cs

@@ -1,0 +1,979 @@
+﻿@using ReportesColgate.Models;
+@model IEnumerable<ReportesColgate.Clases.DinamicaWalmart>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="button" value="Exportar Excel" class=" btn btn-success"
+       onclick="ExportarExcel()" />
+<input type="button" value="Exportar PDF" class=" btn btn-danger"
+       onclick="ExportarPdf('DinamicaWalmart')"/>
+<input type="button" value="Exportar Word" class=" btn btn-primary"
+       onclick="ExportarWord()" />
+<input type="button" value="Imprimir" class=" btn btn-secondary"
+       onclick="Imprimir()" />
+<br />
+<h1 class="text-center">AC Walmart</h1>
+
+<form asp-controller="DinamicaWalmart" asp-action="Exportar" id="frmReporte">
+    <table class="table" id="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Item)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subcategoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Anio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ac)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Formato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nomenclatura)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Espacio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumeroTienda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreTienda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Supervisor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Programa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicionCms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VndrName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrandName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodProv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomProv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Upc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PorcentajeEspacio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaInicioTienda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaFinTienda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorNbr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApoyoTienda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CortesCaja)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCudadoOcremasDentales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoOcepillosDentas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoOenjaguesBucal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoPjabonesTocad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoPdesodorant)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoPshamp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoHsuavisant)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularLavaplat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImplementacionModularCuidadoHdesinfectant)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Limpieza)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TiendaRotulacionCorrectaRollbacksGp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TiendaTieneTodosPreciadoresColocadosAct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasCremasDentales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasCremasDentales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasCepillosDientes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasCepillosDientes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasEnjagueBucal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasEnjagueBucal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasJabonesTocador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasJabonesTocador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasDesodorantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasDesodorantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasShampoo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasShampoo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasSuavisantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasSuavisantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasLavaplatos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasLavaplatos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CausasDesinfectantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FallasDesinfectantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoCkImpulsoCajalineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoCkCpCaJaboncabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaOral01cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaOral02cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaRazuradocabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpGbOralgondola)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaCloroQuitcabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaLabaplatoscabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaLimpiadDesinfectcabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsCloroisla)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueacabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremadentEnjuaguealineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremadentEnjuagueBCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentACabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueBLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentALineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentBCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentBLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCloroDesinfectBCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoDetergenteDetLiqBCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoDetergenteDetLiqBLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavisanteDetLiqCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavisanteDetLiqLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavisanteDetLiqIsla)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoLimpiadLavaplatosBCabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoLimpiadLavaplatosBLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImpulsosCajasCoRetoEnCajas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoCkImpulsoCajaProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaJabonProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaOral01Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaOral02Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCaRazuradoProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpGbOralProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaCloroQuitProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaLavaplatosProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCaLimpiadDesinfectProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsCloroProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueACabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueALinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueBCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentACabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentALinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentBCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpJabonLiqCremaDentBLiqProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoCloroDesinfectBCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoDetergenteDetLiqBCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoDetergenteDetLiqBLinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavizanteDetLiqCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavizanteDetLiqLinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoLimpiadLavaplatosBCabProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoLimpiadLavaplatosBLinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImpulsosCajasCoRetoEnCajasProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpCremaDentEnjuagueBLinProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoIsSuavizanteDetLiqIslaProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductosCHogarDesinfectantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductosCHogarLavaplatos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gestiones)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesCepillosDeDientes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesCremasDentales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesEnjuaguesBucales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesDesodorantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesJabonesDeTocador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesShampoos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesSuavisantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesLavaplatos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaltantesDesinfectantes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CantidadIpsGestionadas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaCp1Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaCp1CabeceraProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaHp4Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaLr1Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaLr1Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Isp10IslaPrimaria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Isp10Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Isp16IslaPrimaria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Isp16Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Iss2IslaSecundaria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reto01RetoEnCaja)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reto01Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TabTab)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TabProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaHp4Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Iss2Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaLh1Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaLh1Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaCo3Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaCo3Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaTemp2Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaTemp2Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoSkProveedor3Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoSkProveedor3Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LinealLineal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LinealPrpductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlCaCo3Cabecera)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlCaCo3Productos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlLateral9Lateral)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlLateral9LateralProductos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reto01RetoEnCajas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reto01RetoEnCProductos)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subcategoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ac)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pais)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Formato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nomenclatura)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Espacio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumeroTienda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreTienda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Supervisor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Programa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicionCms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VndrName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrandName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodProv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomProv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Upc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PorcentajeEspacio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaInicioTienda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaFinTienda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorNbr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApoyoTienda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CortesCaja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCudadoOcremasDentales)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoOcepillosDentas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoOenjaguesBucal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoPjabonesTocad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoPdesodorant)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoPshamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoHsuavisant)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularLavaplat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImplementacionModularCuidadoHdesinfectant)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Limpieza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TiendaRotulacionCorrectaRollbacksGp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TiendaTieneTodosPreciadoresColocadosAct)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasCremasDentales)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasCremasDentales)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasCepillosDientes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasCepillosDientes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasEnjagueBucal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasEnjagueBucal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasJabonesTocador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasJabonesTocador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasDesodorantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasDesodorantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasShampoo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasShampoo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasSuavisantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasSuavisantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasLavaplatos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasLavaplatos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CausasDesinfectantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FallasDesinfectantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoCkImpulsoCajalineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoCkCpCaJaboncabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaOral01cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaOral02cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaRazuradocabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpGbOralgondola)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaCloroQuitcabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaLabaplatoscabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaLimpiadDesinfectcabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsCloroisla)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueacabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremadentEnjuaguealineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremadentEnjuagueBCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentACabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueBLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentALineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentBCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentBLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCloroDesinfectBCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoDetergenteDetLiqBCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoDetergenteDetLiqBLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavisanteDetLiqCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavisanteDetLiqLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavisanteDetLiqIsla)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoLimpiadLavaplatosBCabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoLimpiadLavaplatosBLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImpulsosCajasCoRetoEnCajas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoCkImpulsoCajaProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaJabonProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaOral01Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaOral02Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCaRazuradoProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpGbOralProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaCloroQuitProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaLavaplatosProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCaLimpiadDesinfectProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsCloroProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueACabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueALinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueBCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentACabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentALinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentBCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpJabonLiqCremaDentBLiqProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoCloroDesinfectBCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoDetergenteDetLiqBCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoDetergenteDetLiqBLinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavizanteDetLiqCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavizanteDetLiqLinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoLimpiadLavaplatosBCabProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoLimpiadLavaplatosBLinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImpulsosCajasCoRetoEnCajasProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpCremaDentEnjuagueBLinProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoIsSuavizanteDetLiqIslaProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductosCHogarDesinfectantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductosCHogarLavaplatos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gestiones)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesCepillosDeDientes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesCremasDentales)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesEnjuaguesBucales)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesDesodorantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesJabonesDeTocador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesShampoos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesSuavisantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesLavaplatos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaltantesDesinfectantes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadIpsGestionadas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaCp1Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaCp1CabeceraProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaHp4Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaLr1Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaLr1Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isp10IslaPrimaria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isp10Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isp16IslaPrimaria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isp16Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Iss2IslaSecundaria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reto01RetoEnCaja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reto01Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TabTab)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TabProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaHp4Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Iss2Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaLh1Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaLh1Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaCo3Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaCo3Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaTemp2Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CaTemp2Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoSkProveedor3Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoSkProveedor3Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LinealLineal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LinealPrpductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlCaCo3Cabecera)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlCaCo3Productos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlLateral9Lateral)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlLateral9LateralProductos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reto01RetoEnCajas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reto01RetoEnCProductos)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+<script src="~/js/generic.js"></script>
+<script>
+    function Limpiar() {
+        document.getElementById("nombre").value = "";
+        document.getElementById("frmFormulario").submit();
+    }
+</script>
