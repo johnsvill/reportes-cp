@@ -1,11 +1,13 @@
-﻿function ExportarExcel() {
-    document.getElementById("tipoReporte").value = "Excel";
+﻿
+
+function ExportarWord() {
+    document.getElementById("tipoReporte").value = "Word";
     var frmReporte = document.getElementById("frmReporte");
     frmReporte.submit();
 }
 
-function ExportarWord() {
-    document.getElementById("tipoReporte").value = "Word";
+function ExportarExcel() {
+    document.getElementById("tipoReporte").value = "Excel";
     var frmReporte = document.getElementById("frmReporte");
     frmReporte.submit();
 }

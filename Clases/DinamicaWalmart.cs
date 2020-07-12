@@ -13,8 +13,8 @@ namespace ReportesColgate.Clases
         [DisplayName("ITem")]
         public string Item { get; set; }
         [Display(Name = "Sub Categoria")]
-        [DisplayName("Sub Categoria")]
-        public string Subcategoria { get; set; }
+        [DisplayName("Subcategoria")]
+        public string Subcategoria { get; set; } 
         [Display(Name = "Año")]
         [DisplayName("Año")]
         public string Anio { get; set; }

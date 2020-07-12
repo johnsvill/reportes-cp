@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using ReportesColgate.Clases;
 using ReportesColgate.Models;
+using cm = System.ComponentModel;
 
 namespace ReportesColgate.Controllers
 {
@@ -13,7 +16,7 @@ namespace ReportesColgate.Controllers
         public static List<DinamicaWalmart> lista;
         //Este metodo nos descarga el excel, word y pdf
         public FileResult Exportar(string[] nombreProp, string tipoReporte)
-        {         
+        {
             if (tipoReporte == "Excel")
             {
                 byte[] buffer = ExportarExcelDatos(nombreProp, lista);
@@ -141,7 +144,7 @@ namespace ReportesColgate.Controllers
                                     DoCaCloroQuitProductos = sc.DoCaCloroQuitProductos,
                                     DoCaLavaplatosProductos = sc.DoCaLavaplatosProductos,
                                     DoCaLimpiadDesinfectProductos = sc.DoCaLimpiadDesinfectProductos,
-                                    DoIsCloroProductos = sc.DoIsCloroProductos                                   
+                                    DoIsCloroProductos = sc.DoIsCloroProductos
                                 }).ToList();
             }
             lista = listaWalmart;

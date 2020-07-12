@@ -1,0 +1,102 @@
+﻿@using ReportesColgate.Models;
+@model IEnumerable<ReportesColgate.Clases.ModuloPrecios.WalmartPrecios>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Listado de precios por semana</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Upc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpcSinCod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InicioSemana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TerminacionSemana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tienda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoEmpleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Upc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpcSinCod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InicioSemana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TerminacionSemana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaFin)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

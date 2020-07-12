@@ -78,35 +78,34 @@ namespace ReportesColgate.Controllers
                     ep.Workbook.Worksheets.Add("Hoja");
 
                     ExcelWorksheet ew = ep.Workbook.Worksheets[0];
-                    Dictionary<string, string> diccionario = cm.TypeDescriptor
+                    
+                        Dictionary<string?, string?> diccionario = cm.TypeDescriptor
                         .GetProperties(typeof(T))
                         .Cast<cm.PropertyDescriptor>()
                         .ToDictionary(p => p.Name, p => p.DisplayName);
 
-                    for (int i = 0; i < nombreProp.Length; i++)
+                    if (nombreProp != null && nombreProp.Length > 0)//Validar checks nulos
                     {
-                        ew.Cells[1, i + 1].Value = diccionario[nombreProp[i]];
-                        ew.Column(i + 1).Width = 50;
-                    }
-                    int fila = 2;
-                    int col = 1;
-
-                    foreach (object item in lista)
-                    {
-                        col = 1;
-                        foreach (string propiedad in nombreProp)
+                        for (int i = 0; i < nombreProp.Length; i++)
                         {
-                            ew.Cells[fila, col].Value =
-                                item.GetType().GetProperty(propiedad).GetValue(item).ToString();
-                            col++;//Para aumentarle de uno en uno a las filas
+                            ew.Cells[1, i + 1].Value = diccionario[nombreProp[i]];
+                            ew.Column(i + 1).Width = 15;
                         }
-                        fila++;//Para aumentarle de uno en uno a las columnas
+                        int fila = 2;
+                        int col = 1;
+
+                        foreach (object item in lista)
+                        {
+                            col = 1;
+                            foreach (string propiedad in nombreProp)
+                            {
+                                ew.Cells[fila, col].Value =
+                                  item.GetType().GetProperty(propiedad).GetValue(item).ToString();
+                                col++;//Para aumentarle de uno en uno a las filas                            
+                            }
+                            fila++;//Para aumentarle de uno en uno a las columnas
+                        }
                     }
-
-                    //if (nombreProp != null && nombreProp.Length > 0)//Validar checks nulos
-                    //{
-
-                    //}
                     ep.SaveAs(ms);
                     byte[] buffer = ms.ToArray();
                     return buffer;
