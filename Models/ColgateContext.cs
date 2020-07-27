@@ -27,14 +27,14 @@ namespace ReportesColgate.Models
         public virtual DbSet<FormatoPrecios> FormatoPrecios { get; set; }
         public virtual DbSet<MaxiDespensa> MaxiDespensa { get; set; }
         public virtual DbSet<Mercaderistas> Mercaderistas { get; set; }
-        public virtual DbSet<Scoredcard> Scoredcard { get; set; }
+        public virtual DbSet<Scoredcard> Scoredcard { get; set; }       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 //#/*warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.*/
-                optionsBuilder.UseSqlServer("Server= 52.4.94.116; Database= Colgate; User Id= Jonathan; Password= yfXzsXkm3sL9lcrH");
+                optionsBuilder.UseSqlServer("String de conexión aqui");
             }
         }
 
